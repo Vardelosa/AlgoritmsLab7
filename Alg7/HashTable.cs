@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Alg6
+{ 
     class HashTable<T>
     {
         public HashTable()
