@@ -10,6 +10,7 @@ namespace Alg7
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("23123");
         }
     }
 }
