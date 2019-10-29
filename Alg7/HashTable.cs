@@ -4,58 +4,67 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Alg6
+namespace Alg7
 { 
     class HashTable<T>
     {
         public HashTable()
         {
-            values = new T[20];
+            for (int i = 0; i < 20; i++)
+            {
+                values[i] = new List<T>();
+                values[i].Add(default);
+            }
         }
         public HashTable(int size)
         {
-            values = new T[size];
+           
             for (int i = 0; i < size; i++)
             {
-                values[i] = default(T);
+                values[i] = new List<T>();
+                values[i].Add(default);
             }
         }
         public int size = 0;
-        private T[] values;
+        private List<T>[] values;
         private int key;
-        public bool Count()
-        {
-            double refer = 0;
-            refer = (size / values.Length) * 100;
-            if (refer > 70.0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        private void Resize(int max)
-        {
-            T[] temp = new T[max];
-            for (int i = 0; i < values.Length; i++)
-                temp[i] = values[i];
-            values = temp;
-        }
+        //public bool Count()
+        //{
+        //    double refer = 0;
+        //    refer = (size / values.Length) * 100;
+        //    if (refer > 70.0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+        //private void Resize(int max)
+        //{
+        //    T[] temp = new T[max];
+        //    for (int i = 0; i < values.Length; i++)
+        //        temp[i] = values[i];
+        //    values = temp;
+        //}
         public void Add(string key, T value)
         {
-            if (Count())
-            {
-                Resize(10);
-            }
+            //if (Count())
+            //{
+            //    Resize(10);
+            //}
             int index = hash(key) % values.Length;
-            values[index] = value;
+            values[index].Add(new Element<T>(key, value));
             size++;
         }
         public void Delete(string key)
         {
             int index = hash(key) % values.Length;
+            foreach(var item in values[index])
+            {
+               
+            }
             values[index] = default;
         }
         public T Search(string key)
