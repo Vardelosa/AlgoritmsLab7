@@ -6,28 +6,28 @@ using System.Threading.Tasks;
 
 namespace Alg7
 { 
-    class HashTable<T>
+    public class HashTable<T>
     {
+        public List<Element<T>>[] values;
         public HashTable()
         {
             for (int i = 0; i < 20; i++)
             {
-                values[i] = new List<T>();
-                values[i].Add(default);
+                values[i] = new List<Element<T>>();
             }
         }
-        public HashTable(int size)
+        public HashTable(int size1)
         {
-           
-            for (int i = 0; i < size; i++)
+            values = new List<Element<T>>[size1]();
+            size = size1;
+            for (int i = 0; i < size1; i++)
             {
-                values[i] = new List<T>();
-                values[i].Add(default);
+
+                values[i] = new List<Element<T>>();
             }
         }
         public int size = 0;
-        private List<T>[] values;
-        private int key;
+        
         //public bool Count()
         //{
         //    double refer = 0;
@@ -63,23 +63,35 @@ namespace Alg7
             int index = hash(key) % values.Length;
             foreach(var item in values[index])
             {
-               
+               if(item.key.Equals(key)) 
+               {
+                    item.value = default;
+               }
             }
-            values[index] = default;
         }
         public T Search(string key)
         {
             int index = hash(key) % values.Length;
-            if (values[index].Equals(default(T)))
+            foreach(var item in values[index])
             {
-                Console.WriteLine("There is no such element.\n");
-                return default;
+                if(item.key.Equals(key))
+                {
+                    Console.WriteLine($"Here is your element: {item.value.ToString()}");
+                    return item.value;
+                }
             }
-            else
-            {
-                Console.WriteLine($"Here is your element: {values[index].ToString()}");
-                return values[index];
-            }
+            Console.WriteLine("There is no such element.\n");
+            return default;
+            //if (values[index].Equals(default(T)))
+            //{
+            //    Console.WriteLine("There is no such element.\n");
+            //    return default;
+            //}
+            //else
+            //{
+            //    Console.WriteLine($"Here is your element: {values[index].ToString()}");
+            //    return values[index];
+            //}
         }
         public int hash(string key)
         {

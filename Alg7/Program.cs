@@ -12,10 +12,11 @@ namespace Alg7
         {
             HashTable<int> hs = new HashTable<int>(20);
             hs.Add("mama", 5);
+            hs.Add("papa", 55);
             hs.Add("ababagalamaga", 7);
-            hs.Delete("mama");
-            int n = hs.Search("mama");
-            hs.Search("dasdas");
+           // hs.Delete("mama");
+            int n = hs.Search("papa");
+            //hs.Search("dasdas");
             //Console.WriteLine(n);
             //Console.WriteLine(115%16);
             Console.ReadKey();

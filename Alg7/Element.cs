@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Alg7
 {
-    public class Element<T>
+    public class Element<T> : HashTable<T>
     {
-        string key;
-        T value;
+        public string key;
+        public T value;
         public Element(string key, T value)
         {
             this.key = key;
