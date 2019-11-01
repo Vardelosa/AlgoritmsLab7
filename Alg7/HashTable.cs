@@ -11,6 +11,7 @@ namespace Alg7
         public List<Element<T>>[] values;
         public HashTable()
         {
+            values = new List<Element<T>>[20];
             for (int i = 0; i < 20; i++)
             {
                 values[i] = new List<Element<T>>();
@@ -18,7 +19,7 @@ namespace Alg7
         }
         public HashTable(int size1)
         {
-            values = new List<Element<T>>[size1]();
+            values = new List<Element<T>>[size1];
             size = size1;
             for (int i = 0; i < size1; i++)
             {
@@ -66,21 +67,23 @@ namespace Alg7
                if(item.key.Equals(key)) 
                {
                     item.value = default;
+                    item.key = default;
                }
             }
         }
-        public T Search(string key)
+        public List<Element<T>> Search(string key)
         {
             int index = hash(key) % values.Length;
-            foreach(var item in values[index])
-            {
-                if(item.key.Equals(key))
-                {
-                    Console.WriteLine($"Here is your element: {item.value.ToString()}");
-                    return item.value;
-                }
+            Console.WriteLine("Matches found: ");
+            int i = 1;
+            foreach (var item in values[index])
+            {               
+                Console.WriteLine($"{i}){item.ToString()}");
+                i++;
             }
-            Console.WriteLine("There is no such element.\n");
+            if (values[index].Count() >0)
+            return values[index];
+            Console.WriteLine("No matches found.\n");
             return default;
             //if (values[index].Equals(default(T)))
             //{

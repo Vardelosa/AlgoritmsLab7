@@ -15,5 +15,9 @@ namespace Alg7
             this.key = key;
             this.value = value;
         }
+        public override string ToString()
+        {
+            return value.ToString();
+        }
     }
 }
