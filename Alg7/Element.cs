@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Alg7
 {
-    public class Element<T> : HashTable<T>
+    public class Element<T> : OpenHashTable<T>
     {
         public string key;
         public T value;

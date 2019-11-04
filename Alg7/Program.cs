@@ -10,7 +10,7 @@ namespace Alg7
     {
         static void Main(string[] args)
         {
-            HashTable<int> hs = new HashTable<int>(20);
+            OpenHashTable<int> hs = new OpenHashTable<int>(20);
             hs.Add("mama", 5);
             hs.Add("mama", 544);
             hs.Add("amma", 432);

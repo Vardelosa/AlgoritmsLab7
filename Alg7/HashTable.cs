@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Alg7
 { 
-    public class HashTable<T>
+    public class OpenHashTable<T>
     {
         public List<Element<T>>[] values;
-        public HashTable()
+        public OpenHashTable()
         {
             values = new List<Element<T>>[20];
             for (int i = 0; i < 20; i++)
@@ -17,7 +17,7 @@ namespace Alg7
                 values[i] = new List<Element<T>>();
             }
         }
-        public HashTable(int size1)
+        public OpenHashTable(int size1)
         {
             values = new List<Element<T>>[size1];
             size = size1;
