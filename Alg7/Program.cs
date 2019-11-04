@@ -15,6 +15,7 @@ namespace Alg7
             hs.Add("mama", 544);
             hs.Add("amma", 432);
             hs.Add("papa", 55);
+            hs.Delete("mama");
             hs.Add("ababagalamaga", 7);
             //hs.Delete("mama");
             hs.Search("mama");

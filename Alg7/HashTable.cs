@@ -66,8 +66,8 @@ namespace Alg7
             {
                if(item.key.Equals(key)) 
                {
-                    item.value = default;
-                    item.key = default;
+                    values[index].Remove(item);
+                    break;
                }
             }
         }
