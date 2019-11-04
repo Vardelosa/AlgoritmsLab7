@@ -9,6 +9,7 @@ namespace Alg7
     public class OpenHashTable<T>
     {
         public List<Element<T>>[] values;
+        public int size = 0;
         public OpenHashTable()
         {
             values = new List<Element<T>>[20];
@@ -27,34 +28,9 @@ namespace Alg7
                 values[i] = new List<Element<T>>();
             }
         }
-        public int size = 0;
-        
-        //public bool Count()
-        //{
-        //    double refer = 0;
-        //    refer = (size / values.Length) * 100;
-        //    if (refer > 70.0)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
-        //private void Resize(int max)
-        //{
-        //    T[] temp = new T[max];
-        //    for (int i = 0; i < values.Length; i++)
-        //        temp[i] = values[i];
-        //    values = temp;
-        //}
+
         public void Add(string key, T value)
         {
-            //if (Count())
-            //{
-            //    Resize(10);
-            //}
             int index = hash(key) % values.Length;
             values[index].Add(new Element<T>(key, value));
             size++;
@@ -85,16 +61,6 @@ namespace Alg7
             return values[index];
             Console.WriteLine("No matches found.\n");
             return default;
-            //if (values[index].Equals(default(T)))
-            //{
-            //    Console.WriteLine("There is no such element.\n");
-            //    return default;
-            //}
-            //else
-            //{
-            //    Console.WriteLine($"Here is your element: {values[index].ToString()}");
-            //    return values[index];
-            //}
         }
         public int hash(string key)
         {

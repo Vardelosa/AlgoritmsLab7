@@ -10,10 +10,25 @@ namespace Alg7
     {
         public string key;
         public T value;
+        public int index;
         public Element(string key, T value)
         {
             this.key = key;
             this.value = value;
+        }
+        public Element()
+        {
+            key = "empty";
+            value = default(T);
+        }
+        public bool IsEmpty()
+        {
+            if (this.key.Equals("empty"))
+            {
+                return true;
+            }
+            else
+                return false;
         }
         public override string ToString()
         {
